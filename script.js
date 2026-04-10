@@ -26,9 +26,9 @@ const products = [
     price: "$370 MXN",
     description: "Juego de tapetes 4 piezas universales de alfombra. Base de hule con pico opresor antiderrapante. Logotipo Volkswagen",
     images: [
-      "imagenes/volkswagen/universales/antiderrapantes/1.jpg",
-      "imagenes/volkswagen/universales/antiderrapantes/2.jpg",
-      "imagenes/volkswagen/universales/antiderrapantes/3.jpg",
+      "imagenes/volkswagen/universales/antiderrapantes/1.jpeg",
+      "imagenes/volkswagen/universales/antiderrapantes/2.jpeg",
+      "imagenes/volkswagen/universales/antiderrapantes/3.jpeg",
     ],
   },
 ];
