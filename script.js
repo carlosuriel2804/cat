@@ -5,9 +5,8 @@ const products = [
     price: "$500 MXN",
     description: "Juego de tapetes 4 piezas de alfombra. Base de hule con pico opresor antiderrapante. Diseñados para Chevrolet Aveo desde 2011 a 2017.",
     images: [
-      "aveo-1.jpg",
-      "aveo-2.jpg",
-      "aveo-3.jpg"
+      "imagenes/chevrolet/aveo/2011-2017/1.jpg",
+      "imagenes/chevrolet/aveo/2011-2017/2.jpg",
     ],
   },
 ];
