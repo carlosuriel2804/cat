@@ -226,6 +226,31 @@ h2 {
   display: block;
 }
 
+.product-thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  padding: 0.75rem 0.75rem 0;
+}
+
+.product-thumb {
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.product-thumb.active {
+  border-color: var(--primary);
+}
+
+.product-thumb img {
+  aspect-ratio: 1 / 1;
+}
+
 .product-card-content {
   padding: 1.15rem;
 }
