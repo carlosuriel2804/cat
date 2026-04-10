@@ -104,6 +104,36 @@
   <footer class="footer">
     <p>© 2026 Accesorios automotrices Uriel.</p>
   </footer>
+  
+  <dialog class="gallery-modal" id="gallery-modal" aria-labelledby="gallery-title">
+    <div class="gallery-shell">
+      <button class="gallery-close" id="gallery-close" type="button" aria-label="Cerrar galeria">×</button>
+      <div class="gallery-topbar">
+        <div>
+          <p class="eyebrow">Galeria del producto</p>
+          <h2 id="gallery-title">Producto</h2>
+        </div>
+        <button class="share-button modal-share-button" id="modal-share-button" type="button">Compartir articulo</button>
+      </div>
+
+      <div class="gallery-stage">
+        <button class="gallery-nav" id="gallery-prev" type="button" aria-label="Imagen anterior">‹</button>
+        <img class="gallery-image" id="gallery-image" src="" alt="">
+        <button class="gallery-nav" id="gallery-next" type="button" aria-label="Imagen siguiente">›</button>
+      </div>
+
+      <div class="gallery-toolbar">
+        <p class="gallery-counter" id="gallery-counter">1 / 1</p>
+        <div class="gallery-thumb-pager">
+          <button class="thumb-page-button" id="thumb-page-prev" type="button" aria-label="Pagina anterior de miniaturas">‹</button>
+          <div class="gallery-thumbs" id="gallery-thumbs"></div>
+          <button class="thumb-page-button" id="thumb-page-next" type="button" aria-label="Pagina siguiente de miniaturas">›</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="share-toast" id="share-toast" aria-live="polite"></div>
 
   <script src="script.js"></script>
 </body>
