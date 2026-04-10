@@ -226,9 +226,17 @@ h2 {
   display: block;
 }
 
+.product-image-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  width: 100%;
+}
+
 .product-thumbs {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 0.55rem;
   padding: 0.75rem 0.75rem 0;
 }
@@ -249,6 +257,21 @@ h2 {
 
 .product-thumb img {
   aspect-ratio: 1 / 1;
+}
+
+.product-thumb.more-thumbs {
+  position: relative;
+  color: white;
+}
+
+.product-thumb.more-thumbs::after {
+  content: attr(data-more-label);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  background: rgba(30, 26, 22, 0.55);
 }
 
 .product-card-content {
@@ -283,6 +306,33 @@ h2 {
   margin: 0;
   color: var(--muted);
   line-height: 1.55;
+}
+
+.product-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.product-action-button,
+.share-button {
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.product-action-button:hover,
+.share-button:hover,
+.gallery-close:hover,
+.gallery-nav:hover,
+.thumb-page-button:hover {
+  transform: translateY(-2px);
 }
 
 .section-accent {
@@ -342,6 +392,139 @@ h2 {
   color: var(--muted);
 }
 
+.gallery-modal {
+  width: min(1100px, calc(100vw - 2rem));
+  max-height: calc(100vh - 2rem);
+  padding: 0;
+  border: 0;
+  border-radius: 28px;
+  background: transparent;
+}
+
+.gallery-modal::backdrop {
+  background: rgba(16, 14, 12, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.gallery-shell {
+  position: relative;
+  padding: 1.2rem;
+  border-radius: 28px;
+  background: #fffaf2;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+}
+
+.gallery-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.gallery-topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+  padding-right: 3.4rem;
+}
+
+.gallery-stage {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 56px;
+  gap: 1rem;
+  align-items: center;
+}
+
+.gallery-image {
+  width: 100%;
+  max-height: 68vh;
+  object-fit: contain;
+  border-radius: 24px;
+  background: #f0eadf;
+}
+
+.gallery-nav,
+.thumb-page-button {
+  width: 100%;
+  min-height: 56px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: white;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+.gallery-toolbar {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.gallery-counter {
+  margin: 0;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.gallery-thumb-pager {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 56px;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.gallery-thumb {
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  cursor: pointer;
+}
+
+.gallery-thumb.active {
+  border-color: var(--primary);
+}
+
+.gallery-thumb img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.share-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%) translateY(120%);
+  padding: 0.9rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(33, 70, 61, 0.96);
+  color: white;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease;
+  z-index: 20;
+}
+
+.share-toast.visible {
+  transform: translateX(-50%) translateY(0);
+}
+
 @media (max-width: 960px) {
   .hero-content,
   .feature-panel,
@@ -356,6 +539,22 @@ h2 {
 
   .hero-card {
     transform: none;
+  }
+
+  .gallery-topbar,
+  .gallery-stage,
+  .gallery-thumb-pager {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-nav,
+  .thumb-page-button,
+  .modal-share-button {
+    width: 100%;
+  }
+
+  .gallery-thumbs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -375,5 +574,13 @@ h2 {
 
   .contact-links a {
     min-width: 0;
+  }
+
+  .product-actions {
+    flex-direction: column;
+  }
+
+  .product-thumbs {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
