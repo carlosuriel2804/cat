@@ -10,17 +10,6 @@ const PRODUCTS = [
     ],
   },
   {
-    name: "Juego de tapetes 4 piezas universales Chevrolet antiderrapantes",
-    category: "Tapetes",
-    price: "$370 MXN",
-    description: "Juego de tapetes 4 piezas universales de alfombra. Base de hule con pico opresor antiderrapante. Logotipo Chevrolet",
-    images: [
-      "imagenes/chevrolet/universales/antiderrapantes/1.jpg",
-      "imagenes/chevrolet/universales/antiderrapantes/2.jpg",
-      "imagenes/chevrolet/universales/antiderrapantes/3.jpg",
-    ],
-  },
-  {
     name: "Juego de tapetes 4 piezas universales Volkswagen antiderrapantes",
     category: "Tapetes",
     price: "$370 MXN",
