@@ -230,8 +230,9 @@ h2 {
   padding: 0;
   border: 0;
   background: transparent;
-  cursor: zoom-in;
+  cursor: pointer;
   width: 100%;
+  display: block;
 }
 
 .product-thumbs {
@@ -242,6 +243,7 @@ h2 {
 }
 
 .product-thumb {
+  display: block;
   padding: 0;
   border: 2px solid transparent;
   border-radius: 16px;
@@ -315,7 +317,8 @@ h2 {
 }
 
 .product-action-button,
-.share-button {
+.share-button,
+.back-link {
   padding: 0.8rem 1rem;
   border-radius: 999px;
   border: 1px solid var(--line);
@@ -329,7 +332,7 @@ h2 {
 
 .product-action-button:hover,
 .share-button:hover,
-.gallery-close:hover,
+.back-link:hover,
 .gallery-nav:hover,
 .thumb-page-button:hover {
   transform: translateY(-2px);
@@ -392,68 +395,9 @@ h2 {
   color: var(--muted);
 }
 
-.gallery-modal {
-  width: min(1100px, calc(100vw - 2rem));
-  max-height: calc(100vh - 2rem);
-  padding: 0;
-  border: 0;
-  border-radius: 28px;
-  background: transparent;
-}
-
-.gallery-modal::backdrop {
-  background: rgba(16, 14, 12, 0.72);
-  backdrop-filter: blur(8px);
-}
-
-.gallery-shell {
-  position: relative;
-  padding: 1.2rem;
-  border-radius: 28px;
-  background: #fffaf2;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
-}
-
-.gallery-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.gallery-topbar {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  align-items: end;
-  padding-right: 3.4rem;
-}
-
-.gallery-stage {
-  margin-top: 1rem;
-  display: grid;
-  grid-template-columns: 56px minmax(0, 1fr) 56px;
-  gap: 1rem;
-  align-items: center;
-}
-
-.gallery-image {
-  width: 100%;
-  max-height: 68vh;
-  object-fit: contain;
-  border-radius: 24px;
-  background: #f0eadf;
-}
-
 .gallery-nav,
 .thumb-page-button {
-  width: 100%;
+  min-width: 56px;
   min-height: 56px;
   border-radius: 20px;
   border: 1px solid var(--line);
@@ -462,23 +406,10 @@ h2 {
   font-size: 1.6rem;
 }
 
-.gallery-toolbar {
-  display: grid;
-  gap: 0.9rem;
-  margin-top: 1rem;
-}
-
 .gallery-counter {
   margin: 0;
   font-weight: 700;
   color: var(--muted);
-}
-
-.gallery-thumb-pager {
-  display: grid;
-  grid-template-columns: 56px minmax(0, 1fr) 56px;
-  gap: 0.8rem;
-  align-items: center;
 }
 
 .gallery-thumbs {
@@ -525,6 +456,87 @@ h2 {
   transform: translateX(-50%) translateY(0);
 }
 
+.product-page {
+  min-height: 100vh;
+  padding: clamp(1.25rem, 3vw, 3rem);
+}
+
+.product-detail-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.4rem;
+}
+
+.product-detail-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.detail-gallery,
+.detail-copy,
+.product-not-found {
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.detail-gallery {
+  padding: 1rem;
+}
+
+.detail-main-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 20px;
+  background: #f0eadf;
+  display: block;
+}
+
+.detail-gallery-controls,
+.detail-thumb-strip {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.detail-thumb-strip .gallery-thumbs {
+  flex: 1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.detail-copy {
+  padding: clamp(1.2rem, 3vw, 2rem);
+}
+
+.detail-price {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.detail-description {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.product-not-found {
+  padding: clamp(1.4rem, 4vw, 2.4rem);
+}
+
 @media (max-width: 960px) {
   .hero-content,
   .feature-panel,
@@ -541,16 +553,8 @@ h2 {
     transform: none;
   }
 
-  .gallery-topbar,
-  .gallery-stage,
-  .gallery-thumb-pager {
+  .product-detail-grid {
     grid-template-columns: 1fr;
-  }
-
-  .gallery-nav,
-  .thumb-page-button,
-  .modal-share-button {
-    width: 100%;
   }
 
   .gallery-thumbs {
