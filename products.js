@@ -1,7 +1,7 @@
 const PRODUCTS = [
   {
     name: "Juego de tapetes 4 piezas Chevrolet Aveo 2011 - 2017",
-    category: "Tapetes",
+    category: "Tapetes tipo original",
     price: "$500 MXN",
     description: "Juego de tapetes 4 piezas de alfombra. Base de hule con pico opresor antiderrapante. Diseñados para Chevrolet Aveo desde 2011 a 2017.",
     images: [
@@ -11,7 +11,7 @@ const PRODUCTS = [
   },
   {
     name: "Juego de tapetes 4 piezas universales Volkswagen antiderrapantes",
-    category: "Tapetes",
+    category: "Tapetes universales antiderrapantes",
     price: "$370 MXN",
     description: "Juego de tapetes 4 piezas universales de alfombra. Base de hule con pico opresor antiderrapante. Logotipo Volkswagen",
     images: [
