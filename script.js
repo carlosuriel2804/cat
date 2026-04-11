@@ -114,6 +114,54 @@ productGrid.addEventListener("click", (event) => {
   }
 });
 
+productGrid.addEventListener("mouseover", (event) => {
+  const thumbnail = event.target.closest(".product-thumb");
+
+  if (!thumbnail) {
+    return;
+  }
+
+  const productCard = thumbnail.closest(".product-card");
+  const mainImage = productCard.querySelector(".product-main-image");
+  const nextImage = thumbnail.querySelector("img");
+
+  if (!mainImage || !nextImage) {
+    return;
+  }
+
+  mainImage.src = nextImage.src;
+  mainImage.alt = nextImage.alt.replace(" miniatura", "");
+
+  productCard.querySelectorAll(".product-thumb").forEach((item) => {
+    item.classList.remove("active");
+  });
+
+  thumbnail.classList.add("active");
+});
+
+productGrid.addEventListener("mouseout", (event) => {
+  const productCard = event.target.closest(".product-card");
+
+  if (!productCard || productCard.contains(event.relatedTarget)) {
+    return;
+  }
+
+  const productId = productCard.id;
+  const product = window.catalogProducts.find((item) => item.id === productId);
+  const mainImage = productCard.querySelector(".product-main-image");
+
+  if (!product || !mainImage) {
+    return;
+  }
+
+  mainImage.src = product.images[0];
+  mainImage.alt = product.name;
+
+  productCard.querySelectorAll(".product-thumb").forEach((item, index) => {
+    item.classList.toggle("active", index === 0);
+  });
+});
+
 async function shareProduct(productId) {
   const product = window.catalogProducts.find((item) => item.id === productId);
 
