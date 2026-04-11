@@ -22,7 +22,7 @@ const PRODUCTS = [
   },
   {
     name: "Juego de tapetes 4 piezas universales Nissan con hule en medio",
-    category: "Tapetes universales antiderrapantes",
+    category: "Tapetes universales hule en medio",
     price: "$350 MXN",
     description: "Juego de tapetes 4 piezas universales de alfombra. Hule en medio. Logotipo Nissan",
     images: [
