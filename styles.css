@@ -221,7 +221,7 @@ h2 {
 
 .product-card img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
 }
@@ -496,7 +496,7 @@ h2 {
 
 .detail-main-image {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 20px;
   background: #f0eadf;
